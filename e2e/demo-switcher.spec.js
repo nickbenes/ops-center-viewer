@@ -15,7 +15,8 @@ test('switches between bundled demos', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Job search team (sad path)' }).click();
   await expect(page.locator('.turn-row')).toHaveCount(8);
-  await expect(page.locator('.turn-row .prompt-summary').first()).toContainText('no new listings');
+  // Chronological order: the "no new listings" wrap-up is the last row, not the first.
+  await expect(page.locator('.turn-row .prompt-summary').last()).toContainText('no new listings');
 });
 
 test('loads an uploaded project-logs.csv through the same pipeline as the demos', async ({ page }) => {

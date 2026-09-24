@@ -16,7 +16,9 @@ export const COLUMNS = [
 export class CsvSchemaError extends Error {}
 
 /**
- * Parse project-logs.csv text into an array of turn objects, newest first.
+ * Parse project-logs.csv text into an array of turn objects, in file row
+ * order. Sorting/filtering for display is the caller's responsibility
+ * (see lib/turn-query.js) — this just parses.
  */
 export function parseProjectLogsCsv(text) {
   const rows = parseCsvRows(text);
@@ -25,11 +27,9 @@ export function parseProjectLogsCsv(text) {
   const [header, ...dataRows] = rows;
   validateHeader(header);
 
-  const turns = dataRows
+  return dataRows
     .filter((row) => row.some((cell) => cell !== ''))
     .map((row, index) => rowToTurn(row, index));
-
-  return turns.sort((a, b) => (a.turn_dttm < b.turn_dttm ? 1 : a.turn_dttm > b.turn_dttm ? -1 : 0));
 }
 
 function validateHeader(header) {

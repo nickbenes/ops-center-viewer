@@ -67,7 +67,7 @@ describe('parseProjectLogsCsv', () => {
     });
   });
 
-  it('sorts turns reverse-chronologically by turn_dttm', () => {
+  it('parses turns in file row order, unsorted (sorting is the caller\'s job)', () => {
     const csv = [
       HEADER,
       '2026-09-20T09:00:00-04:00,a,t,first,none,none,none',
@@ -75,7 +75,7 @@ describe('parseProjectLogsCsv', () => {
       '2026-09-20T10:00:00-04:00,a,t,second,none,none,none',
     ].join('\n');
     const turns = parseProjectLogsCsv(csv);
-    expect(turns.map((t) => t.user_prompt_summary)).toEqual(['third', 'second', 'first']);
+    expect(turns.map((t) => t.user_prompt_summary)).toEqual(['first', 'third', 'second']);
   });
 
   it('expands pipe-delimited comm_to/comm_channel/comm_ref into positional comms', () => {
