@@ -1,16 +1,16 @@
 import { test, expect } from '@playwright/test';
 
-test('loads the default demo, shows a reverse-chronological turn list, and opens the raw detail panel on row click', async ({
+test('loads the default demo, shows a chronological turn list, and opens the raw detail panel on row click', async ({
   page,
 }) => {
   await page.goto('/');
 
   await expect(page.locator('.turn-row')).toHaveCount(3);
 
-  // Reverse-chronological: the 09:00:12 turn should render above the 09:00:00 turn.
+  // Chronological (oldest first) is the default: 09:00:00 renders above 09:00:12.
   const rowTimestamps = await page.locator('.turn-row .turn-dttm').allTextContents();
-  expect(rowTimestamps[0]).toContain('09:00:12');
-  expect(rowTimestamps[2]).toContain('09:00:00');
+  expect(rowTimestamps[0]).toContain('09:00:00');
+  expect(rowTimestamps[2]).toContain('09:00:12');
 
   await expect(page.locator('.detail-empty')).toBeVisible();
 
