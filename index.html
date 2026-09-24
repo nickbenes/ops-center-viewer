@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ops-center viewer</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <h1>ops-center viewer</h1>
+        <p class="app-subtitle">Turn/action log for ops-center Claude Code sessions</p>
+      </header>
+
+      <nav id="demo-switcher" class="demo-switcher" aria-label="Data source"></nav>
+
+      <main id="app-main">
+        <section id="turn-list" class="turn-list" aria-label="Turn list"></section>
+        <aside id="detail-panel" class="detail-panel" aria-label="Turn detail">
+          <p class="detail-empty">Select a row to see its raw fields.</p>
+        </aside>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

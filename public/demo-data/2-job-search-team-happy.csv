@@ -1,0 +1,9 @@
+turn_dttm,thread_name,thread_dttm,user_prompt_summary,comm_to,comm_channel,comm_ref
+2026-09-15T13:00:00-04:00,orchestrator,2026-09-15T13:00:00-04:00,Human asked orchestrator to run the weekly job-search cycle.,researcher,direct_message,-
+2026-09-15T13:00:20-04:00,researcher,2026-09-15T13:00:20-04:00,Orchestrator asked researcher to find new Staff/Principal SWE listings.,none,none,none
+2026-09-15T13:04:10-04:00,researcher,2026-09-15T13:00:20-04:00,Researcher found 3 matching listings and saved each as a Markdown file.,todo-agent,broadcast,memory/listings/2026-09-15.md
+2026-09-15T13:04:30-04:00,researcher,2026-09-15T13:00:20-04:00,Researcher reported completion back to orchestrator.,orchestrator,direct_message,-
+2026-09-15T13:05:00-04:00,todo-agent,2026-09-15T13:05:00-04:00,Orchestrator's broadcast triggered todo-agent to build the application todo list.,none,none,none
+2026-09-15T13:05:40-04:00,todo-agent,2026-09-15T13:05:00-04:00,Todo-agent scanned memory/listings/*.md and found 3 files.,none,none,none
+2026-09-15T13:06:15-04:00,todo-agent,2026-09-15T13:05:00-04:00,Todo-agent wrote memory/todos/2026-09-15.md with one application task per listing.,orchestrator,shared_file,memory/todos/2026-09-15.md
+2026-09-15T13:06:30-04:00,orchestrator,2026-09-15T13:00:00-04:00,Orchestrator confirmed the todo list was created and reported success to the human.,none,none,none
