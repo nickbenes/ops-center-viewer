@@ -1,0 +1,4 @@
+turn_dttm,thread_name,thread_dttm,user_prompt_summary,comm_to,comm_channel,comm_ref
+2026-09-10T09:00:00-04:00,agent-a,2026-09-10T09:00:00-04:00,Human asked agent-a to say hello to agent-b.,agent-b,direct_message,-
+2026-09-10T09:00:05-04:00,agent-b,2026-09-10T09:00:05-04:00,Human asked agent-b to greet agent-a back.,agent-a,direct_message,-
+2026-09-10T09:00:12-04:00,agent-a,2026-09-10T09:00:00-04:00,Human confirmed the round-trip comm worked and ended the check.,none,none,none
